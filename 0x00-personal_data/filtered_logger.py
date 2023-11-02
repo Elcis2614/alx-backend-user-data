@@ -8,11 +8,12 @@ from typing import (
 )
 
 
-def filter_datum(fields: List[str], redaction: str, message: str, separator: str) -> str:
+def filter_datum(fields: List[str], redaction: str,
+                 message: str, separator: str) -> str:
     """
         returns the log message obfuscated
     """
     for field in fields:
-        pattern = '{}\=([^{}]+){}'.format(field, separator, separator)
-        message = re.sub(pattern, '{}={}{}'.format(field, redaction, separator), message, 0, 0)
-    return message
+        p = '{}\=([^{}]+){}'.format(field, separator, separator)
+        mes = re.sub(p, '{}={}{}'.format(field, redaction, separator), message)
+    return mes
