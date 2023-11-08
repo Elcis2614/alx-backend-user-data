@@ -1,2 +1,1 @@
-Personal data
-User data computation
+Introduction to user data computation
