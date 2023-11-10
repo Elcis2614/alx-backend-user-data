@@ -8,6 +8,7 @@ from typing import (
     TypeVar,
 )
 
+
 class Auth:
     """
         Simple Auth class
@@ -21,13 +22,11 @@ class Auth:
             return False
         return True
 
-
     def authorization_header(self, request=None) -> str:
         """
             returns None
         """
         return None
-
 
     def current_user(self, request=None) -> TypeVar('User'):
         """
