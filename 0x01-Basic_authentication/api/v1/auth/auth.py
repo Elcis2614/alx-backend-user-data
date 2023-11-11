@@ -28,7 +28,12 @@ class Auth:
         """
             returns None
         """
-        return None
+        if request is None:
+            return None
+        try:
+            return request.Authorization
+        except AttributeError:
+            return None
 
     def current_user(self, request=None) -> TypeVar('User'):
         """
