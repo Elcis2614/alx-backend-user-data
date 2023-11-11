@@ -5,7 +5,7 @@
 from flask import request
 from typing import (
     List,
-    TypeVar,
+    TypeVar,    
 )
 
 
@@ -18,10 +18,10 @@ class Auth:
             that returns False - path and excluded_paths will be used later
         """
         if path:
-            new_ p = path
+            new_p = path
             if path[-1] == '/':
                 return new_p not in excluded_paths
-            return new_p.append('/') not in excluded_paths
+            return new_p + '/' not in excluded_paths
         return True
 
     def authorization_header(self, request=None) -> str:
