@@ -5,7 +5,7 @@
 from flask import request
 from typing import (
     List,
-    TypeVar,    
+    TypeVar,
 )
 
 
@@ -17,7 +17,7 @@ class Auth:
         """
             that returns False - path and excluded_paths will be used later
         """
-        if path:
+        if path and excluded_paths:
             new_p = path
             if path[-1] == '/':
                 return new_p not in excluded_paths
