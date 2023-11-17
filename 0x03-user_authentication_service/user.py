@@ -2,20 +2,16 @@
 """
     User model
 """
-from sqlalchemy import String
 from typing import Optional
-from sqlalchemy.orm import (
-    DeclarativeBase,
-    Mapped,
-    mapped_column,
+from sqlalchemy import (
+    Column,
+    Integer,
+    String,
 )
+from sqlalchemy.ext.declarative import declarative_base
 
 
-class Base(DeclarativeBase):
-    """
-        Base
-    """
-    pass
+Base = declarative_base()
 
 
 class User(Base):
@@ -24,8 +20,8 @@ class User(Base):
     """
     __tablename__ = 'users'
 
-    id: Mapped[int] = mapped_column(primary_key=True)
-    email: Mapped[str] = mapped_column(String(250))
-    hashed_password: Mapped[str] = mapped_column(String(250))
-    session_id: Mapped[Optional[str]] = mapped_column(String(250))
-    reset_token: Mapped[Optional[str]] = mapped_column(String(250))
+    id: int = Column(Integer, primary_key=True)
+    email: str = Column(String, nullable=False)
+    hashed_password: int = Column(String, nullable=False)
+    session_id: Optional[str] = Column(String, nullable=True)
+    reset_token: Optional[str] = Column(String, nullable=True)
