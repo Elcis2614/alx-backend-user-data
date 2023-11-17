@@ -18,10 +18,10 @@ class User(Base):
     """
        The base class
     """
-    __tablename__ = 'users'
+    __tablename__: str = 'users'
 
     id: int = Column(Integer, primary_key=True)
-    email: str = Column(String, nullable=False)
-    hashed_password: int = Column(String, nullable=False)
-    session_id: Optional[str] = Column(String, nullable=True)
-    reset_token: Optional[str] = Column(String, nullable=True)
+    email: str = Column(String(250), nullable=False)
+    hashed_password: int = Column(String(250), nullable=False)
+    session_id: Optional[str] = Column(String(250), nullable=True)
+    reset_token: Optional[str] = Column(String(250), nullable=True)
