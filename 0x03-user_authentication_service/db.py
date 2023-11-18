@@ -53,3 +53,13 @@ class DB:
         if user is None:
             raise(NoResultFound)
         return user
+
+    def update_user(self, user_id: int, **kwargs: List[str]) -> None:
+        """
+            use find_user_by to locate the user to update,
+            then will update the user’s attributes as passed
+            in the method’s arguments then commit changes to the database.
+        """
+        user = self.find_user_by(id=user_id)
+        for key in kwargs.keys():
+            exec('user.{} = "{}"'.format(key, kwargs[key]))
