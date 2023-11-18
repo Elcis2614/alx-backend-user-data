@@ -62,4 +62,7 @@ class DB:
         """
         user = self.find_user_by(id=user_id)
         for key in kwargs.keys():
-            exec('user.{} = "{}"'.format(key, kwargs[key]))
+            try:
+                exec('user.{} = "{}"'.format(key, kwargs[key]))
+            except:
+                raise(ValueError)
