@@ -8,7 +8,7 @@ from typing import (
     List,
 )
 from mysql.connector.connection import MySQLConnection
-from sys import getenv as gt
+from os import getenv as gt
 
 PII_FIELDS = ("name", "email", "phone", "ssn", "password")
 
