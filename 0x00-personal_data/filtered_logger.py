@@ -72,6 +72,6 @@ def get_db() -> MySQLConnection:
         Returns a connector to a secure Hoberton mySql database
     """
     return MySQLConnection(user=gt("PERSONAL_DATA_DB_USERNAME", "root"),
-                           password=gt("PERSONAL_DATA_DB_USERNAME", ""),
+                           password=gt("PERSONAL_DATA_DB_PASSWORD", ""),
                            host=gt("PERSONAL_DATA_DB_HOST", "localhost"),
                            database=gt("PERSONAL_DATA_DB_NAME"))
