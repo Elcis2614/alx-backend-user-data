@@ -74,4 +74,4 @@ def get_db() -> MySQLConnection:
     return MySQLConnection(user=gt("PERSONAL_DATA_DB_USERNAME", "root"),
                            password=gt("PERSONAL_DATA_DB_USERNAME", ""),
                            host=gt("PERSONAL_DATA_DB_HOST", "localhost"),
-                           database="PERSONAL_DATA_DB_NAME")
+                           database=gt("PERSONAL_DATA_DB_NAME"))
