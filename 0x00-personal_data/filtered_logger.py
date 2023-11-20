@@ -56,8 +56,9 @@ def get_logger() -> logging.Logger:
      Takes no arguments and returns a logging.Logger object
     """
     logObj = logging.getLogger("user_data")
-    logObj.basicConfig(handlers=[logging.StreamHandler(
-                       RedactingFormatter(list(PII_FIELDS)))])
-    logObj.addFilter(m_filter)
+    handler = logging.StreamHandler()
+    handler.setFormatter(RedactingFormatter(list(PII_FIELDS)))
+    handler.addFilter(m_filter)
+    logObj.addHandler(handler)
     logObj.propagate = False
     return logObj
