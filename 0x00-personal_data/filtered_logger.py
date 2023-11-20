@@ -7,6 +7,9 @@ import logging
 from typing import (
     List,
 )
+from mysql.connector.connection import MySQLConnection
+from sys import getenv as gt
+
 PII_FIELDS = ("name", "email", "phone", "ssn", "password")
 
 
@@ -62,3 +65,13 @@ def get_logger() -> logging.Logger:
     logObj.addHandler(handler)
     logObj.propagate = False
     return logObj
+
+
+def get_db() -> MySQLConnection:
+    """
+        Returns a connector to a secure Hoberton mySql database
+    """
+    return MySQLConnection(user=gt("PERSONAL_DATA_DB_USERNAME", "root"),
+                           password=gt("PERSONAL_DATA_DB_USERNAME", ""),
+                           host=gt("PERSONAL_DATA_DB_HOST", "localhost"),
+                           database="PERSONAL_DATA_DB_NAME")
